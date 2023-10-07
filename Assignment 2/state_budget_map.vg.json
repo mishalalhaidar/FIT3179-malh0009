@@ -1,0 +1,16 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1000,
+    "height": 1000,
+    "title": "State Budget",
+    "projection": {"type": "identity","reflectY":true},
+    "data":{
+        "url": "VMLITE.topojson",
+        "format":{"type": "topojson","feature": "VMLITE_LGA"}
+    },
+    "mark":{
+        "type": "geoshape",
+        "stroke":"black",
+        "strokeWidth": 1
+    }
+}
