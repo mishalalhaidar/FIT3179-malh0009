@@ -4,7 +4,7 @@
   "width": 600,
   "height": 700,
   "data": {
-    "url": "dataset/state-by-region-2023-2024.csv"
+    "url": "https://raw.githubusercontent.com/mishalalhaidar/FIT3179-malh0009/main/Homework%20week%2010/dataset/state-by-region-2023-2024.csv"
   },
   "mark": "bar",
   "encoding": {

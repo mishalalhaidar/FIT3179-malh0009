@@ -22,7 +22,7 @@
         },
         {
             "data":{
-                "url": "dataset/state-budget-2023-24-budget-website-map-data.csv"
+                "url": "https://raw.githubusercontent.com/mishalalhaidar/FIT3179-malh0009/main/Homework%20week%2010/dataset/state-budget-2023-24-budget-website-map-data.csv"
             },
             "mark":{"type": "circle","tooltip":{"content": "data"},"color":"green"},
             "encoding": {
