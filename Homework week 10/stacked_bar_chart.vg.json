@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Investment by Region and Type",
-  "width": 800,
-  "height": 800,
+  "title": "Investment by Region and Department",
+  "width": 400,
+  "height": 400,
   "data": {
     "url": "dataset/state-by-region-2023-2024.csv"
   },
@@ -18,18 +18,18 @@
     "color": {
       "field": "entity",
       "type": "nominal",
-      "legend": {"title": "Entity Type"},
+      "legend": {"title": "Department Type","symbolSize":200,"labelFontSize":10,"labelAlign":"left"},
       "scale": {
-        "domain": ["Department of Justice and Community Safety", "Department of Education", "Department of Energy, Environment and Climate Action", 
-                  "Department of Government Services", "Department of Health", "Department of Jobs, Skills, Industry and Regions",
-                  "Department of Transport and Planning"],
+        "domain": ["Justice and Community Safety", "Education", "Energy & Climate Action", 
+                  "Health", "Jobs, Skills, Industry and Regions",
+                  "Transport and Planning"],
         "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2"]
       }
     },
     "tooltip": [
       {"field": "Region", "type": "nominal"},
-      {"field": "entity", "type": "nominal"},
-      {"field": "investment", "type": "quantitative", "aggregate": "sum"}
+      {"field": "entity", "type": "nominal","title": "Department Type"},
+      {"field": "investment", "type": "quantitative", "aggregate": "sum", "title": "Total Investment"}
     ]
   },
   "params": [
@@ -37,11 +37,12 @@
       "name": "entity_selection",
       "bind":{
         "input": "select",
-        "options": [null,"Department of Justice and Community Safety", "Department of Education", "Department of Energy, Environment and Climate Action", "Department of Government Services", "Department of Health", "Department of Jobs, Skills, Industry and Regions",
-                    "Department of Transport and Planning"],
-        "name": "Entity Selection: ",
+        "options": [null,"Justice and Community Safety", "Education", "Energy & Climate Action", 
+                    "Health", "Jobs, Skills, Industry and Regions",
+                    "Transport and Planning"],
+        "name": "Department Selection: ",
         "labels": ["Show All","Department of Justice and Community Safety", "Department of Education", "Department of Energy, Environment and Climate Action", 
-        "Department of Government Services", "Department of Health", "Department of Jobs, Skills, Industry and Regions",
+        "Department of Health", "Department of Jobs, Skills, Industry and Regions",
         "Department of Transport and Planning"]
       }
     }
