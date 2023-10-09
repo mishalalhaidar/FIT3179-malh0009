@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 800,
+    "title": "Total Investment Budget of Victoria by Region",
+    "data":{
+        "url": "VMLITE_WGS84_V2.topojson",
+        "format":{
+            "type": "topojson",
+            "feature": "VMLITE_WGS84_REGION_V2"
+        }
+    },
+    "transform": [
+        {
+            "lookup": "properties.VGREGSNM",
+            "from": {
+                "data": {
+                    "url": "dataset/state-by-region-2023-2024.csv"
+                    
+                },
+                "key": "Region",
+                "fields": ["investment"]
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark":{
+                "type": "geoshape",
+                "stroke":"black",
+                "fill":"lightgrey",
+                "strokeWidth": 1
+            },
+            "projection": {"type":"mercator"}
+        
+        },
+        {
+            "mark":{
+                "type": "circle",
+                "tooltip":{"content": "data"}
+            },
+            "encoding": {
+                "longitude":{"field":"properties.long","type": "quantitative"},
+                "latitude":{"field":"properties.lat","type": "quantitative"},
+                "size":{
+                    "field": "investment",
+                    "type": "quantitative",
+                    "legend":{"title":"Investment"}
+                }
+
+            }
+        }
+    ]
+}
