@@ -3,13 +3,17 @@
     "width": 1000,
     "height": 800,
     "title": "State Budget Test",
+    "data":{
+        "url": "state_dataset/raw data/test-data-v2.csv",
+        "name": "csvData"
+    },
     "layer": [
         {
             "data":{
-                "url": "VMLITE_WGS84_REGION.topojson",
+                "url": "VMLITE_WGS84_V2.topojson",
                 "format":{
                     "type": "topojson",
-                    "feature": "VMLITE_WGS84"
+                    "feature": "VMLITE_WGS84_REGION_V2"
                 }
             },
             "mark":{
@@ -23,17 +27,32 @@
         },
         {
             "data":{
-                "url": "state_dataset/test-data-v2.csv"
+                "url": "VMLITE_WGS84_V2.topojson",
+                "format":{
+                    "type": "topojson",
+                    "feature": "VMLITE_WGS84_REGION_V2"
+                }
             },
+            "transform": [
+                {
+                    "lookup": "properties.VGREGSNM",
+                    "from": {
+                        "data": {"name": "csvData"},
+                        "key": "region",
+                        "fields": ["inv"]
+                    }
+                }
+            ],
             "mark":{"type": "circle","tooltip":{"content": "data"}},
             "encoding": {
-                "longitude":{"field":"longitude","type": "quantitative"},
-                "latitude":{"field":"latitude","type": "quantitative"},
-                "size": {
+                "longitude":{"field":"properties.long","type": "quantitative"},
+                "latitude":{"field":"properties.lat","type": "quantitative"},
+                "size":{
                     "field": "inv",
                     "type": "quantitative",
-                    "title": "Magnitude (Richter scale)"
-                    }
+                    "legend":{"title":"Investment"}
+                }
+
             }
         }
     ]
