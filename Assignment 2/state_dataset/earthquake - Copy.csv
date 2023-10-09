@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-10-11T11:09:24.169Z,-38,142.559,153.6,4.7,mb,,141,0.762,0.83,us,us6000c7iv,2020-10-11T11:28:36.040Z,"74 km ENE of Meulaboh, Indonesia",earthquake,9.1,6.7,0.08,47,reviewed,us,us

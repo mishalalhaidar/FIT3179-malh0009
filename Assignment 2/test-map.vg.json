@@ -1,0 +1,60 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1000,
+    "height": 800,
+    "title": "State Budget Test",
+    "data":{
+        "url": "state_dataset/test-data-v2.csv",
+        "name": "csvData"
+    },
+    "layer": [
+        {
+            "data":{
+                "url": "VMLITE_WGS84_V2.topojson",
+                "format":{
+                    "type": "topojson",
+                    "feature": "VMLITE_WGS84_REGION_V2"
+                }
+            },
+            "mark":{
+                "type": "geoshape",
+                "stroke":"black",
+                "fill":"lightgrey",
+                "strokeWidth": 1,
+                "tooltip":{"content": "data"}
+            },
+            "projection": {"type":"mercator"}
+        },
+        {
+            "data":{
+                "url": "VMLITE_WGS84_V2.topojson",
+                "format":{
+                    "type": "topojson",
+                    "feature": "VMLITE_WGS84_REGION_V2"
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "properties.VGREGSNM",
+                    "from": {
+                        "data": {"name": "csvData"},
+                        "key": "region",
+                        "fields": ["inv"]
+                    }
+                }
+            ],
+            "mark":{"type": "circle","tooltip":{"content": "data"}},
+            "encoding": {
+                "longitude":{"field":"properties.latitude","type": "quantitative"},
+                "latitude":{"field":"properties.longitude","type": "quantitative"},
+                "size":{
+                    "field": "inv",
+                    "type": "quantitative",
+                    "legend":{"title":"Investment"}
+                }
+
+            }
+        }
+    ]
+
+}

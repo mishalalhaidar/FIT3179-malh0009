@@ -1,16 +1,41 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 1000,
-    "height": 1000,
-    "title": "State Budget",
-    "projection": {"type": "identity","reflectY":true},
-    "data":{
-        "url": "VMLITE.topojson",
-        "format":{"type": "topojson","feature": "VMLITE_LGA"}
-    },
-    "mark":{
-        "type": "geoshape",
-        "stroke":"black",
-        "strokeWidth": 1
-    }
+    "height": 800,
+    "title": "State Budget Test",
+    "layer": [
+        {
+            "data":{
+                "url": "VMLITE_WGS84_REGION.topojson",
+                "format":{
+                    "type": "topojson",
+                    "feature": "VMLITE_WGS84"
+                }
+            },
+            "mark":{
+                "type": "geoshape",
+                "stroke":"black",
+                "fill":"lightgrey",
+                "strokeWidth": 1,
+                "tooltip":{"content": "data"}
+            },
+            "projection": {"type":"mercator"}
+        },
+        {
+            "data":{
+                "url": "state_dataset/test-data-v2.csv"
+            },
+            "mark":{"type": "circle","tooltip":{"content": "data"}},
+            "encoding": {
+                "longitude":{"field":"longitude","type": "quantitative"},
+                "latitude":{"field":"latitude","type": "quantitative"},
+                "size": {
+                    "field": "inv",
+                    "type": "quantitative",
+                    "title": "Magnitude (Richter scale)"
+                    }
+            }
+        }
+    ]
+
 }
