@@ -1,0 +1,40 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Investment by Region and Type",
+    "width": 800,
+    "height": 800,
+    "data": {
+      "url": "dataset/state-by-region-2023-2024.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {"field": "Region", "type": "nominal", "axis": {"title": "Region"}},
+      "y": {
+        "field": "investment", 
+        "type": "quantitative", 
+        "aggregate": "sum", 
+        "axis": {"title": "Total Investment"}
+      },
+      "color": {
+        "field": "entity",
+        "type": "nominal",
+        "legend": {"title": "Investment Type"}
+      },
+      "tooltip": [
+        {"field": "Region", "type": "nominal"},
+        {"field": "entity", "type": "nominal"},
+        {"field": "investment", "type": "quantitative", "aggregate": "sum"}
+      ]
+    },
+    "selection": {
+      "typeFilter": {
+        "type": "multi",
+        "fields": ["entity"],
+        "bind": "legend"
+      }
+    },
+    "transform": [
+      {"filter": {"selection": "typeFilter"}}
+    ]
+  }
+  
