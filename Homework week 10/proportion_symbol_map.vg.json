@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
-    "height": 400,
+    "width": 600,
+    "height": 900,
     "title": "Investment By Local Government Area",
     "data":{
         "url": "VMLITE_WGS84_V2.topojson",
@@ -48,6 +48,10 @@
                 }
             ]
         }
-    ]
+    ],
+    "config": {
+        "title": {"font":"Roboto-serif","fontSize":24},
+        "legend": {"labelFont":"Roboto","labelFontSize":15,"titleFont":"Roboto Slab","titleFontSize":16}
+    }
     
 }
