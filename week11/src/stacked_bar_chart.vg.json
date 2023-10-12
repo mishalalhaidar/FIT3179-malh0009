@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Investment by Region and Department",
+  "width": 600,
+  "height": 700,
+  "data": {
+    "url": "https://raw.githubusercontent.com/mishalalhaidar/FIT3179-malh0009/main/Homework%20week%2010/dataset/state-by-region-2023-2024.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Region", "type": "nominal", "axis": {"title": "Region"}},
+    "y": {
+      "field": "investment", 
+      "type": "quantitative", 
+      "aggregate": "sum", 
+      "axis": {"title": "Total Investment($)"}
+    },
+    "color": {
+      "field": "entity",
+      "type": "nominal",
+      "legend": {"title": "Department Type","symbolSize":200,"labelFontSize":10,"labelAlign":"left"},
+      "scale": {
+        "domain": ["Justice and Community Safety", "Education", "Energy & Climate Action", 
+                  "Health", "Jobs, Skills, Industry and Regions",
+                  "Transport and Planning"],
+        "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2"]
+      }
+    },
+    "tooltip": [
+      {"field": "Region", "type": "nominal"},
+      {"field": "entity", "type": "nominal","title": "Department Type"},
+      {"field": "investment", "type": "quantitative", "aggregate": "sum", "title": "Total Investment","format":"$.2f"}
+    ]
+  },
+  "params": [
+    {
+      "name": "entity_selection",
+      "bind":{
+        "input": "select",
+        "options": [null,"Justice and Community Safety", "Education", "Energy & Climate Action", 
+                    "Health", "Jobs, Skills, Industry and Regions",
+                    "Transport and Planning"],
+        "name": "Department Selection: ",
+        "labels": ["Show All","Department of Justice and Community Safety", "Department of Education", "Department of Energy, Environment and Climate Action", 
+        "Department of Health", "Department of Jobs, Skills, Industry and Regions",
+        "Department of Transport and Planning"]
+      }
+    }
+  ],
+  "transform": [
+    {"filter":"entity_selection == null || datum.entity == entity_selection"}
+  ],
+  "config": {
+    "title": {"font":"Roboto-serif","fontSize":24},
+    "axis": {"labelFont":"Roboto","labelFontSize":15,"titleFont":"Roboto Slab","titleFontSize":16},
+    "legend": {"labelFont":"Roboto","labelFontSize":15,"titleFont":"Roboto Slab","titleFontSize":16}
+  }
+}

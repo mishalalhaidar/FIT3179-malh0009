@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 900,
+    "title": "Investment By Local Government Area",
+    "data":{
+        "url": "https://raw.githubusercontent.com/mishalalhaidar/FIT3179-malh0009/main/Homework%20week%2010/VMLITE_WGS84_V2.topojson",
+        "format":{
+            "type": "topojson",
+            "feature": "VMLITE_WGS84_REGION_V2"
+        }
+    },
+    "layer": [
+        {
+            "mark":{
+                "type": "geoshape",
+                "stroke":"black",
+                "fill":"lightgoldenrodyellow",
+                "strokeWidth": 1
+            },
+            "projection": {"type":"mercator"}
+        },
+        {
+            "data":{
+                "url": "https://raw.githubusercontent.com/mishalalhaidar/FIT3179-malh0009/main/Homework%20week%2010/dataset/state-budget-2023-24-budget-website-map-data.csv"
+            },
+            "mark":{"type": "circle","tooltip":{"content": "data"},"color":"green"},
+            "encoding": {
+                "longitude":{"field":"long","type": "quantitative"},
+                "latitude":{"field":"lat","type": "quantitative"},
+                "size":{
+                    "field": "investment",
+                    "type": "quantitative",
+                    "legend":{"title":"Investment"}
+                },
+                "tooltip": [
+                    {"field": "name", "type": "nominal", "title": "Projection Name"},
+                    {"field": "theme", "type": "nominal", "title": "Sector"},
+                    {"field": "entity", "type": "nominal", "title": "Department"},
+                    {"field": "investment", "type": "quantitative", "title": "Investment Budget", "format": "$.2f"},
+                    {"field": "lga", "type": "nominal", "title": "Local Government Area"},
+                    {"field": "description", "type": "nominal", "title": "Description"}
+                ]
+            },
+            "transform": [
+                {
+                    "filter":"datum.feature_type == 'Point'"
+                }
+            ]
+        }
+    ],
+    "config": {
+        "title": {"font":"Roboto-serif","fontSize":24},
+        "legend": {"labelFont":"Roboto","labelFontSize":15,"titleFont":"Roboto Slab","titleFontSize":16}
+    }
+    
+}

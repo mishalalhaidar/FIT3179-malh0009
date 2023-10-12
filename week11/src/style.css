@@ -1,0 +1,21 @@
+body {
+    font-family: 'Roboto Slabe', serif;
+    margin: 0;
+    padding: 50px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#charts-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#stacked_bar_chart,
+#proportional_chart {
+    flex: 1;
+    padding: 20px;
+}
