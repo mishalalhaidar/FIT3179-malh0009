@@ -1,30 +1,55 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
-    "height": 300,
-    "data": {"url": "/state_dataset/fixed_cleaned data/state_dataset.csv"},
-    "transform": [{
-        "filter": "datum['Project type'] == 'New' || datum['Project type'] == 'Existing'"
-      }],
-    "mark": {"type": "area","tooltip":{"content": "data"}},
-    "encoding": {
-      "x": {
-        "timeUnit": "year",
-        "field": "Budget year",
-        "type": "temporal",
-        "axis": {"format": "%Y", "title": "Budget Year"}
-      },
-      "y": {
-        "aggregate": "sum",
-        "field": "TEI",
-        "type": "quantitative",
-        "axis": {"title": "Total Estimated Investment"}
-      },
-      "color": {
-        "field": "Sector",
-        "type": "nominal",
-        "scale": {"scheme": "category20b"},
-        "legend": {"title": "Sector"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "/state_dataset/fixed_cleaned data/state_dataset.csv"},
+  "transform": [
+    {
+      "filter": "datum['Project type'] == 'New' || datum['Project type'] == 'Existing'"
+    },
+    {
+      "filter":"sector_selection == null || datum.Sector == sector_selection"
+    }
+  ]
+  ,
+  "width": 600,
+  "height": 300,
+  "mark": {"type": "bar", "tooltip": {"content": "data"}},
+  "encoding": {
+    "x": {
+      "timeUnit": "year",
+      "field": "Budget year",
+      "type": "nominal",
+      "axis": {"format": "%Y", "title": "Budget Year"}
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "TEI",
+      "type": "quantitative",
+      "axis": {"title": "Total Estimated Investment"}
+    },
+    "color": {
+      "field": "Sector",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Culture, sport and community", "Education and Training", "Environment", 
+                    "Health and human services", "Justice and emergency services",
+                    "Transport","Water"],
+        "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2"]
       }
     }
+  },
+  "params": [
+    {
+      "name": "sector_selection",
+      "bind":{
+        "input": "select",
+        "options": [null,"Culture, sport and community", "Education and Training", "Environment", 
+                    "Health and human services", "Justice and emergency services",
+                    "Transport","Water"],
+        "name": "Sector Selection: ",
+        "labels": ["Show All","Culture, sport and community", "Education and Training", "Environment", 
+        "Health and human services", "Justice and emergency services",
+        "Transport","Water"]
+      }
+    }
+  ]
 }
