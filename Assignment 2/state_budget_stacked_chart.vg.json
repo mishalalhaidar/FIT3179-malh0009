@@ -45,26 +45,53 @@
       ],
       "width": 600,
       "height": 300,
-      "mark": "line",
-      "encoding": {
-        "x": {
-          "timeUnit": "year",
-          "field": "Budget year",
-          "type": "ordinal",
-          "axis": {"format": "%Y", "title": "Budget Year"}
+      "layer": [
+        {
+          "mark": "line",
+          "encoding": {
+            "x": {
+              "timeUnit": "year",
+              "field": "Budget year",
+              "type": "ordinal",
+              "axis": {"format": "%Y", "title": "Budget Year"}
+            },
+            "y": {
+              "aggregate": "count",
+              "type": "quantitative",
+              "axis": {"title": "Number of Projects"}
+            },
+            "color": {
+              "field": "Sector",
+              "type": "nominal",
+              "scale": {"scheme": "category20b"}
+            },
+            "detail": {"field": "Sector"}
+          }
         },
-        "y": {
-          "aggregate": "count",
-          "type": "nominal",
-          "axis": {"title": "Number of Projects"}
-        },
-        "color": {
-          "field": "Sector",
-          "type": "nominal",
-          "scale": {"scheme": "category20b"}
-        },
-        "detail": {"field": "Sector"}
-      }
+        {
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "tooltip": {"content": "data"}
+          },
+          "encoding": {
+            "x": {
+              "timeUnit": "year",
+              "field": "Budget year",
+              "type": "ordinal"
+            },
+            "y": {
+              "aggregate": "count",
+              "type": "quantitative"
+            },
+            "color": {
+              "field": "Sector",
+              "type": "nominal",
+              "scale": {"scheme": "category20b"}
+            }
+          }
+        }
+      ]
     }
   ],
   "params": [
