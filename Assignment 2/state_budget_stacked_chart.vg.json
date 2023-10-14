@@ -1,0 +1,30 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 300,
+    "data": {"url": "/state_dataset/fixed_cleaned data/state_dataset.csv"},
+    "transform": [{
+        "filter": "datum['Project type'] == 'New' || datum['Project type'] == 'Existing'"
+      }],
+    "mark": {"type": "area","tooltip":{"content": "data"}},
+    "encoding": {
+      "x": {
+        "timeUnit": "year",
+        "field": "Budget year",
+        "type": "temporal",
+        "axis": {"format": "%Y", "title": "Budget Year"}
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": "TEI",
+        "type": "quantitative",
+        "axis": {"title": "Total Estimated Investment"}
+      },
+      "color": {
+        "field": "Sector",
+        "type": "nominal",
+        "scale": {"scheme": "category20b"},
+        "legend": {"title": "Sector"}
+      }
+    }
+}
