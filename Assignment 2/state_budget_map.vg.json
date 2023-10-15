@@ -7,6 +7,19 @@
         "url": "VMLITE_WGS84_V2.topojson",
         "format":{"type": "topojson","feature": "VMLITE_WGS84_REGION_V2"}
     },
+    "params": [
+        {
+            "name": "year_selection",
+            "value": 2020,
+            "bind":{
+                "input": "range",
+                "min": 2020,
+                "max": 2023,
+                "step": 1,
+                "name": "Year: "
+            }
+        }
+    ],
     "layer": [
         {
             "mark":{"type": "geoshape","fill":"lightgray","stroke":"black"},
@@ -15,13 +28,17 @@
         {
             "data":{"url": "state_dataset/fixed_cleaned data/state_by_region/total_tei_region.csv"},
             "mark": {"type": "circle","tooltip":{"content": "data"}},
+            "transform": [
+                {
+                    "filter": "datum.year == year_selection"
+                }
+            ],
             "encoding": {
                 "longitude": {"field":"longitude","type": "quantitative"},
                 "latitude":{"field":"latitude","type": "quantitative"},
                 "size":{
                     "field": "investment",
                     "type": "quantitative",
-                    "scale": {"range": [0, 2000]},
                     "legend":{"title":"Investment"}
                 }
             }
