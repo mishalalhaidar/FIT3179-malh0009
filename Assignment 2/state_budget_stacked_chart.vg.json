@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "/state_dataset/fixed_cleaned data/state_dataset.csv"},
+  "data": {"url": "state_dataset/fixed_cleaned data/state_dataset.csv"},
   "vconcat": [
     {
       "transform": [
@@ -12,7 +12,7 @@
         }
       ],
       "width": 600,
-      "height": 300,
+      "height": 400,
       "mark": {"type": "bar", "tooltip": {"content": "data"}},
       "encoding": {
         "x": {

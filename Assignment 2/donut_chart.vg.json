@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "state_dataset/fixed_cleaned data/total_tei_sector.csv"
+  },
+  "mark": {"type": "arc","innerRadius":50,"tooltip":{"content": "data"}},
+  "view": {"stroke": null},
+  "encoding": {
+      "facet": {
+          "field": "year",
+          "type": "ordinal",
+          "columns": 4
+      },
+      "theta": {"field":"percent","type": "quantitative"},
+      "color":{"field":"Sector","type": "nominal","scale":{"scheme":"category20"}}
+  }
+}
+
