@@ -1,21 +1,33 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width":100,
-  "height":370,
+  "height":100,
   "background":"transparent",
   "data": {
     "url": "state_dataset/fixed_cleaned data/total_tei_sector.csv"
   },
-  "mark": {"type": "arc","innerRadius":40,"outerRadius":80,"tooltip":{"content": "data"}},
-  "view": {"stroke": null},
+  
+  "mark": {"type": "arc","innerRadius":40,"outerRadius":80,"cornerRadius":2,"stroke":"black"},
   "encoding": {
       "facet": {
           "field": "year",
           "type": "ordinal",
-          "columns": 4
+          "columns": 3
       },
       "theta": {"field":"percent","type": "quantitative"},
-      "color":{"field":"Sector","type": "nominal","scale":{"scheme":"category20"},"legend":null}
-  }
+      "color":{
+        "field":"Sector",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Culture, sport and community", "Education and Training", "Environment", "Health and human services", "Justice and emergency services", "Transport", "Water"],
+          "range": ["#8ecae6","#ffb703","#219ebc","#ffcb69","#fb8500","#31B2E7","#ffd373"]
+        },
+        "legend":{"orient": "right"}
+      },
+      "tooltip": [
+        {"field": "year", "type": "ordinal", "title": "Year"},
+        {"field": "percent", "type": "quantitative", "format": ".2f" ,"title": "Estiamted Invesment (%)"},
+        {"field": "Sector", "type": "nominal", "title": "Sector"}
+    ]
+    }
 }
-

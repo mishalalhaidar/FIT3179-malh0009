@@ -1,25 +1,41 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "state_dataset/fixed_cleaned data/state_by_region_with_lga/total_state_lga.csv"},
-    "mark": {"type": "rect","tooltip":{"content": "data"}},
+    "mark": {"type": "rect"},
     "width": 450,
     "height": 500,
     "background":"transparent",
+    "transform": [
+      {
+        "aggregate": [
+          {
+              "op": "count",
+              "field": "lga",
+              "as": "lga_count"
+          }
+          
+        ],
+        "groupby": ["year", "Region"]
+      }
+    ],
     "encoding": {
         "x": {"field": "year", "type": "ordinal", "title": "Year"},
         "y": {"field": "Region", "type": "nominal", "title": "Region"},
         "color": {
-            "aggregate": "count",
-            "field": "lga",
-            "title": "Number of LGAs",
+            "field": "lga_count",
+            "title": "Number of Investment",
             "type": "quantitative",
             "scale": {
               "range": ["#5BCBF5", "#31B2E7", "#0C9ED9", "#0088CA", "#0066B3"]
             }
-        }
+        }, 
+        "tooltip": [
+          {"field": "Region", "type": "nominal", "title": "Region Name"},
+          {"field": "lga_count", "type": "quantitative","title": "Total Count of Investment"}
+      ]
     },
     "config": {
-      "axis": {"grid": true, "tickBand": "extent"}
+      "axis": {"grid": true, "tickBand": "extent","labelColor":"black","gridColor":"black"}
     }
   }
   

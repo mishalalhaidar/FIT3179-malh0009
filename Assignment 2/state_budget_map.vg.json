@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
+    "width": 550,
     "height":570,
     "background":"transparent",
     "data":{
@@ -22,12 +22,12 @@
     ],
     "layer": [
         {
-            "mark":{"type": "geoshape","fill":"#5BCBF5","stroke":"gray"},
+            "mark":{"type": "geoshape", "fill": "#0C9ED9", "fillOpacity": 0.8,"stroke":"black"},
             "projection": {"type":"mercator"}
         },
         {
             "data":{"url": "state_dataset/fixed_cleaned data/state_by_region/total_tei_region.csv"},
-            "mark": {"type": "circle","tooltip":{"content": "data"},"fill":"#075C9E"},
+            "mark": {"type": "circle","tooltip":{"content": "data"},"fill":"#ffcb69","stroke":"black"},
             "transform": [
                 {
                     "filter": "datum.year == year_selection"
@@ -39,9 +39,16 @@
                 "size":{
                     "field": "investment",
                     "type": "quantitative",
-                    "legend":{"title":"Investment"},
-                    "scale":{"range":[0,2000],"domain":[5e7,6.5e9]}
-                }
+                    "legend":{"title":"Investment","format": "$.2s"},
+                    "scale":{
+                        "domain": [1, 5e6, 1e9],
+                        "range": [0, 50, 500, 1000]
+                    }
+                },
+                "tooltip": [
+                    {"field": "Region", "type": "nominal", "title": "Region Name"},
+                    {"field": "investment", "type": "quantitative", "format":"$.2s","title": "Total Investment"}
+                ]
             }
         }
     ],

@@ -10,11 +10,22 @@
         },
         {
           "filter": "sector_selection == null || datum['Sector'] == sector_selection"
+        },
+        {
+          "aggregate": [
+            {
+                "op": "sum",
+                "field": "TEI",
+                "as": "total_tei"
+            }
+            
+          ],
+          "groupby": ["Budget year", "Sector"]
         }
       ],
       "width": 450,
       "height": 400,
-      "mark": {"type": "bar", "tooltip": {"content": "data"}},
+      "mark": {"type": "bar","stroke":"black", "strokeWidth":1.5},
       "encoding": {
         "x": {
           "timeUnit": "year",
@@ -23,18 +34,23 @@
           "axis": {"format": "%Y", "title": "Budget Year"}
         },
         "y": {
-          "aggregate": "sum",
-          "field": "TEI",
+          "field": "total_tei",
           "type": "quantitative",
-          "axis": {"title": "Total Estimated Investment"}
+          "axis": {"title": "Total Estimated Investment ($)","format": "$.2s"}
         },
         "color": {
           "field": "Sector",
           "type": "nominal",
           "scale": {
-            "range":["#FF6347", "#FF7F50", "#FFA500", "#FFD700","#8A2BE2", "#2E8B57", "#3CB371"]
+            "domain": ["Culture, sport and community", "Education and Training", "Environment", "Health and human services", "Justice and emergency services", "Transport", "Water"],
+            "range": ["#8ecae6","#ffb703","#219ebc","#ffcb69","#fb8500","#31B2E7","#ffd373"]
           }
-        }
+        },
+        "tooltip": [
+          {"field": "Budget year", "type": "temporal", "format": "%Y", "title": "Year"},
+          {"field": "total_tei", "type": "quantitative", "format": "$.2s","title": "Total Estimated Investment"},
+          {"field": "Sector", "type": "nominal", "title": "Sector"}
+      ]
       }
     },
     {
@@ -50,7 +66,7 @@
       "height": 300,
       "layer": [
         {
-          "mark": "line",
+          "mark": {"type": "line","strokeWidth":3},
           "encoding": {
             "x": {
               "timeUnit": "year",
@@ -73,8 +89,9 @@
         {
           "mark": {
             "type": "point",
-            "filled": true,
-            "tooltip": {"content": "data"}
+            "filled": false,
+            "stroke":"black"
+
           },
           "encoding": {
             "x": {
@@ -89,7 +106,13 @@
             "color": {
               "field": "Sector",
               "type": "nominal"
-            }
+            },
+            "tooltip": [
+              {"field": "Budget year", "type": "temporal", "format": "%Y", "title": "Year"},
+              {"field": "Sector", "type": "nominal", "title": "Sector"},
+              {"field": "y", "type": "ordinal", "title": "Sector"}
+
+          ]
           }
         }
       ]
