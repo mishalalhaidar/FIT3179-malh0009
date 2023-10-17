@@ -12,7 +12,18 @@
       "facet": {
           "field": "year",
           "type": "ordinal",
-          "columns": 3
+          "columns": 3,
+          "title": "Years",
+          "header":{
+            "labelFont":"Kanit",
+            "labelFontStyle": "italic",
+            "labelFontWeight":500,
+            "labelFontSize":11,
+            "titleFont":"Kanit",
+            "titleFontStyle":"normal",
+            "titleFontWeight":600,
+            "titleFontSize":15
+          }
       },
       "theta": {"field":"percent","type": "quantitative"},
       "color":{
@@ -26,8 +37,28 @@
       },
       "tooltip": [
         {"field": "year", "type": "ordinal", "title": "Year"},
-        {"field": "percent", "type": "quantitative", "format": ".2f" ,"title": "Estiamted Invesment (%)"},
+        {"field": "percent", "type": "quantitative", "format": ".2f" ,"title": "Estimated Investment (%)"},
         {"field": "Sector", "type": "nominal", "title": "Sector"}
     ]
+    },"config": {
+      "axis": {
+        "labelFont":"Kanit",
+        "labelFontStyle":"italic",
+        "labelFontWeight":500,
+        "titleFont":"Kanit",
+        "titleFontStyle":"normal",
+        "titleFontWeight":600,
+        "titleFontSize":15
+      },
+      "legend": {
+        "titleFont":"Kanit",
+        "titleFontStyle":"normal",
+        "titleFontWeight":600,
+        "labelFontStyle":"italic",
+        "labelFontWeight":500,
+        "labelFontSize":10,
+        "titleFontSize":15
+      }
+  
     }
 }

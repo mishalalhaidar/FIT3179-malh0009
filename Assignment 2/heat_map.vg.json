@@ -2,8 +2,9 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "state_dataset/fixed_cleaned data/state_by_region_with_lga/total_state_lga.csv"},
     "mark": {"type": "rect"},
-    "width": 450,
-    "height": 500,
+    "width": 400,
+    "height": 400,
+    "autosize":"fit-y",
     "background":"transparent",
     "transform": [
       {
@@ -35,7 +36,27 @@
       ]
     },
     "config": {
-      "axis": {"grid": true, "tickBand": "extent","labelColor":"black","gridColor":"black"}
+      "axis": {
+        "grid": true, 
+        "tickBand": "extent",
+        "labelColor":"black",
+        "gridColor":"black",
+        "labelFont":"Kanit",
+        "labelFontStyle":"italic",
+        "labelFontWeight":500,
+        "titleFont":"Kanit",
+        "titleFontStyle":"normal",
+        "titleFontWeight":600,
+        "titleFontSize":15
+      },
+      "legend": {
+        "titleFont":"Kanit",
+        "titleFontStyle":"normal",
+        "titleFontWeight":600,
+        "labelFontStyle":"italic",
+        "labelFontWeight":500,
+        "labelFontSize":11,
+        "titleFontSize":15}
     }
-  }
+}
   

@@ -23,9 +23,9 @@
           "groupby": ["Budget year", "Sector"]
         }
       ],
-      "width": 450,
-      "height": 400,
-      "mark": {"type": "bar","stroke":"black", "strokeWidth":1.5},
+      "width": 500,
+      "height": 300,
+      "mark": {"type": "bar","stroke":"black", "strokeWidth":0.5},
       "encoding": {
         "x": {
           "timeUnit": "year",
@@ -44,7 +44,8 @@
           "scale": {
             "domain": ["Culture, sport and community", "Education and Training", "Environment", "Health and human services", "Justice and emergency services", "Transport", "Water"],
             "range": ["#8ecae6","#ffb703","#219ebc","#ffcb69","#fb8500","#31B2E7","#ffd373"]
-          }
+          },
+          "legend":{"orient": "right"}
         },
         "tooltip": [
           {"field": "Budget year", "type": "temporal", "format": "%Y", "title": "Year"},
@@ -62,8 +63,8 @@
           "filter": "sector_selection == null || datum.Sector == sector_selection"
         }
       ],
-      "width": 450,
-      "height": 300,
+      "width": 500,
+      "height": 400,
       "layer": [
         {
           "mark": {"type": "line","strokeWidth":3},
@@ -128,5 +129,28 @@
         "labels": ["Show All", "Culture, sport and community", "Education and Training", "Environment", "Health and human services", "Justice and emergency services", "Transport", "Water"]
       }
     }
-  ]
+  ],
+  "config": {
+    "axis": {
+      "ticks": true,
+      "tickExtra": true,
+      "labelFont":"Kanit",
+      "labelFontStyle":"italic",
+      "labelFontWeight":500,
+      "titleFont":"Kanit",
+      "titleFontStyle":"normal",
+      "titleFontWeight":600,
+      "titleFontSize":15
+    },
+    "legend": {
+      "titleFont":"Kanit",
+      "titleFontStyle":"normal",
+      "titleFontWeight":600,
+      "labelFontStyle":"italic",
+      "labelFontWeight":500,
+      "labelFontSize":10,
+      "titleFontSize":15}
+
+  }
 }
+

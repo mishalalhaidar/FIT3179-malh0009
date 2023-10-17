@@ -1,7 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 550,
-    "height":570,
+    "width": 500,
+    "height":500,
+    "autosize":"fit-y",
     "background":"transparent",
     "data":{
         "url": "VMLITE_WGS84_V2.topojson",
@@ -53,6 +54,14 @@
         }
     ],
     "config": {
-        "view": {"stroke":"transparent"}
+        "view": {"stroke":"transparent"},
+        "legend": {
+            "titleFont":"Kanit",
+            "titleFontStyle":"normal",
+            "titleFontWeight":600,
+            "labelFontStyle":"italic",
+            "labelFontWeight":500,
+            "labelFontSize":11,
+            "titleFontSize":15}
     }
 }
