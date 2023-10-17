@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "state_dataset/fixed_cleaned data/state_dataset.csv"},
+  "background":"transparent",
   "vconcat": [
     {
       "transform": [
@@ -8,10 +9,10 @@
           "filter": "datum['Project type'] == 'New' || datum['Project type'] == 'Existing'"
         },
         {
-          "filter": "sector_selection == null || datum.Sector == sector_selection"
+          "filter": "sector_selection == null || datum['Sector'] == sector_selection"
         }
       ],
-      "width": 600,
+      "width": 450,
       "height": 400,
       "mark": {"type": "bar", "tooltip": {"content": "data"}},
       "encoding": {
@@ -30,7 +31,9 @@
         "color": {
           "field": "Sector",
           "type": "nominal",
-          "scale": {"scheme": "category20b"}
+          "scale": {
+            "range":["#FF6347", "#FF7F50", "#FFA500", "#FFD700","#8A2BE2", "#2E8B57", "#3CB371"]
+          }
         }
       }
     },
@@ -43,7 +46,7 @@
           "filter": "sector_selection == null || datum.Sector == sector_selection"
         }
       ],
-      "width": 600,
+      "width": 450,
       "height": 300,
       "layer": [
         {
@@ -62,8 +65,7 @@
             },
             "color": {
               "field": "Sector",
-              "type": "nominal",
-              "scale": {"scheme": "category20b"}
+              "type": "nominal"
             },
             "detail": {"field": "Sector"}
           }
@@ -86,8 +88,7 @@
             },
             "color": {
               "field": "Sector",
-              "type": "nominal",
-              "scale": {"scheme": "category20b"}
+              "type": "nominal"
             }
           }
         }

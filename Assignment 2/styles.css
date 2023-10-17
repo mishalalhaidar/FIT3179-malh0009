@@ -1,0 +1,65 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+}
+
+
+.title-side {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 290px;
+    background: #A2D1ED;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 100;
+}
+
+.title-name, .title-description, .source-description {
+    padding: 5px; 
+}
+
+.title-side h1 {
+    font-size: 80px;
+}
+
+.title-side h3 {
+    font-size: 20px;
+    padding-top: 70px;
+}
+.main-content {
+    position: relative;
+    left: 330px;
+    width: calc(100% - 330px);
+    height: auto;
+    background-color: #E9E9ED; 
+    overflow-x: hidden;
+}
+
+.graph-container {
+    width: 100%;           
+    padding: 10px;
+    display: flex;      
+}
+
+.main-content p {
+    font-size: 20px;
+    margin: auto;
+    padding: 1%;
+}
+
+.geo-chart h2 {
+    text-align: center;
+}
+
+#heat-graph {
+    padding-bottom: 40px;
+}

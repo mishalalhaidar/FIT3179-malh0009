@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 800,
-    "title": "State Budget Test",
+    "width": 500,
+    "height":570,
+    "background":"transparent",
     "data":{
         "url": "VMLITE_WGS84_V2.topojson",
         "format":{"type": "topojson","feature": "VMLITE_WGS84_REGION_V2"}
@@ -22,12 +22,12 @@
     ],
     "layer": [
         {
-            "mark":{"type": "geoshape","fill":"lightgray","stroke":"black"},
+            "mark":{"type": "geoshape","fill":"#5BCBF5","stroke":"gray"},
             "projection": {"type":"mercator"}
         },
         {
             "data":{"url": "state_dataset/fixed_cleaned data/state_by_region/total_tei_region.csv"},
-            "mark": {"type": "circle","tooltip":{"content": "data"}},
+            "mark": {"type": "circle","tooltip":{"content": "data"},"fill":"#075C9E"},
             "transform": [
                 {
                     "filter": "datum.year == year_selection"
@@ -39,9 +39,13 @@
                 "size":{
                     "field": "investment",
                     "type": "quantitative",
-                    "legend":{"title":"Investment"}
+                    "legend":{"title":"Investment"},
+                    "scale":{"range":[0,2000],"domain":[5e7,6.5e9]}
                 }
             }
         }
-    ]
+    ],
+    "config": {
+        "view": {"stroke":"transparent"}
+    }
 }

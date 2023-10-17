@@ -7,10 +7,82 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script> 
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <script src="vega_embed.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Assignment2</title>
 </head>
 <body>
-    <div id="state_budget_map"></div>
-    <div id="state_chart"></div>
+    <div class="title-side">
+        <header>
+            <h1>State Budget of Victoria</h1>
+            <h3>
+                For any country's states and territories, government investment is crucial. 
+                It sets the direction for growth and reflects the goals of the administration. 
+                In Victoria Australia, these investments shape the state's future, touching areas from infrastructure and education to healthcare and public services. 
+                This visualization provides a perspective on how the Victorian government uses its funds.
+            </h3>
+        </header>
+        <footer>
+            <header>
+                <h3>Sources:</h3>
+            </header>
+        </footer>
+    </div>
+    <div class="main-content">
+        <div class="graph-container">
+            <div class="geo-chart">
+                <h2>Geo chart</h2>
+                <div id="geo-graph"></div>
+                <p>
+                    The geographical chart gives a visual picture of government investment between 2020 and 2023 in Victoria's regions. 
+                    With the biggest spending overall over the years, 2020 stands out as a year of ambitious projects and initiatives. 
+                    In contrast, regional spending decreased in 2021 and 2022, possibly signaling a period of consolidation or a change in priorities. 
+                    By 2023, funding starts to go up noticeably in all regions, indicating increased commitment and perhaps a reaction to shifting demands or economic considerations.
+                </p>
+            </div>
+            <div class="heat-map-chart">
+                <h2>Heat Map</h2>
+                <div id="heat-graph"></div>
+                <p>
+                    The heat map offers a graphic picture of investments made during a four-year period in Victoria's
+                    regions. In 2021 and 2022, the majority of Victoria's outer regions—including Gippsland, 
+                    the Grampians, and Hume—saw a lack of investment. The metropolitan areas received a lot of attention 
+                    from the investments during this time. This may point to a deliberate effort to improve urban services 
+                    and infrastructure, maybe in response to the demands and challenges of a growing urban population. 
+                    A period of evaluation or realignment of priorities may be indicated by the lack of expenditures in the outlying regions, 
+                    with a clear return to a more equal distribution by 2023.
+                </p>
+            </div>
+        </div>
+        <div class="graph-container">
+            <div class="area-line-chart">
+                <h2>Area Line Chart</h2>
+                <div id="area-line-graph"></div>
+                <p>
+                    The Area and Line Charts shed light on how investments were distributed among key governmental sectors between 2015 and 2022. 
+                    The persistent, considerable investment made in the transportation industry over time is a notable trend. Transport not only leads 
+                    in terms of financial investment but also in terms of the volume of projects completed. This highlights the Victorian government's 
+                    commitment to strengthening and maintaining its transportation system, maybe in an effort to improve connectivity, foster economic growth, 
+                    and satisfy the needs of a burgeoning population.
+                </p>
+                <br>
+                <p>
+                    The Water sector, on the other hand, has seen the least investment, suggesting that either 
+                    it hasn't been a top priority lately or that projects and infrastructure related to water have already received enough attention in previous years. 
+                </p>
+
+            </div>
+            <div class="donut-chart">
+                <h2>Donut Chart</h2>
+                <div id="donut-graph"></div>
+                <p>
+                    A visual representation of the proportional investments in various government sectors for each year, from 2015 through 2022, is provided by the donut chart.
+                    Each donut segment represents a particular sector, and the size of the section represents the proportion of the overall budget that segment will get.
+                    The predominate investment in the transportation industry, which accounts for around 83% of the overall budget on average, has been a trend over the years. 
+                    This significant allocation highlights the Victorian government's emphasis on connectivity and infrastructure. Other sectors with comparable smaller financial share include Culture,
+                    Sport, and Community, Education and Training, and Health and Human Services. The focus on transportation implies that enhancing and growing the state's transportation networks is a primary priority.
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,9 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width":100,
+  "height":370,
+  "background":"transparent",
   "data": {
     "url": "state_dataset/fixed_cleaned data/total_tei_sector.csv"
   },
-  "mark": {"type": "arc","innerRadius":50,"tooltip":{"content": "data"}},
+  "mark": {"type": "arc","innerRadius":40,"outerRadius":80,"tooltip":{"content": "data"}},
   "view": {"stroke": null},
   "encoding": {
       "facet": {
@@ -12,7 +15,7 @@
           "columns": 4
       },
       "theta": {"field":"percent","type": "quantitative"},
-      "color":{"field":"Sector","type": "nominal","scale":{"scheme":"category20"}}
+      "color":{"field":"Sector","type": "nominal","scale":{"scheme":"category20"},"legend":null}
   }
 }
 
