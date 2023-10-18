@@ -4,7 +4,7 @@
   "height":100,
   "background":"transparent",
   "data": {
-    "url": "state_dataset/fixed_cleaned data/total_tei_sector.csv"
+    "url": "state_dataset/total_tei_sector.csv"
   },
   
   "mark": {"type": "arc","innerRadius":40,"outerRadius":80,"cornerRadius":2,"stroke":"black"},

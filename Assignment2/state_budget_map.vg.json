@@ -27,7 +27,7 @@
             "projection": {"type":"mercator"}
         },
         {
-            "data":{"url": "state_dataset/fixed_cleaned data/state_by_region/total_tei_region.csv"},
+            "data":{"url": "state_dataset/total_tei_region.csv"},
             "mark": {"type": "circle","tooltip":{"content": "data"},"fill":"#ffcb69","stroke":"black"},
             "transform": [
                 {

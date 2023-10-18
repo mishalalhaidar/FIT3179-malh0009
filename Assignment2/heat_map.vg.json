@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {"url": "state_dataset/fixed_cleaned data/state_by_region_with_lga/total_state_lga.csv"},
+    "data": {"url": "state_dataset/total_state_lga.csv"},
     "mark": {"type": "rect"},
     "width": 400,
     "height": 400,
