@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "state_dataset/state_dataset.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/mishalalhaidar/FIT3179-malh0009/main/Assignment2/state_dataset/state_dataset.csv"},
   "background":"transparent",
   "vconcat": [
     {

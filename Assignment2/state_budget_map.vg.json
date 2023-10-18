@@ -5,7 +5,7 @@
     "autosize":"fit-y",
     "background":"transparent",
     "data":{
-        "url": "VMLITE_WGS84_V2.topojson",
+        "url": "https://raw.githubusercontent.com/mishalalhaidar/FIT3179-malh0009/main/Assignment2/VMLITE_WGS84_V2.topojson",
         "format":{"type": "topojson","feature": "VMLITE_WGS84_REGION_V2"}
     },
     "params": [
@@ -27,7 +27,7 @@
             "projection": {"type":"mercator"}
         },
         {
-            "data":{"url": "state_dataset/total_tei_region.csv"},
+            "data":{"url": "https://raw.githubusercontent.com/mishalalhaidar/FIT3179-malh0009/main/Assignment2/state_dataset/total_tei_region.csv"},
             "mark": {"type": "circle","tooltip":{"content": "data"},"fill":"#ffcb69","stroke":"black"},
             "transform": [
                 {

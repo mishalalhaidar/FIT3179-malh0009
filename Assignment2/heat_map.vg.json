@@ -1,7 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {"url": "state_dataset/total_state_lga.csv"},
-    "mark": {"type": "rect"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/mishalalhaidar/FIT3179-malh0009/main/Assignment2/state_dataset/total_state_lga.csv"
+    },
+    "mark": "rect",
     "width": 400,
     "height": 400,
     "autosize":"fit-y",
